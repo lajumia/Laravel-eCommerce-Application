@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 
 
 //Route For Backend/API
+
+Route::get('/brands',[BrandController::class,'brandList']);
