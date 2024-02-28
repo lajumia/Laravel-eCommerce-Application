@@ -31,4 +31,36 @@ class ProductController extends Controller
         
         
     }
+
+    public function productbyBrand($brand_id)
+    {
+        $products = Product::where('brand_id', $brand_id)->get();
+        $count = $products->count();
+
+        try{
+            if($count>0){
+                return response()->json([
+                    'status' => 'success',
+                    'products' => $products
+                ],200);
+            }else{
+                return response()->json([
+                    'status' => 'success',
+                    'products' => 'Product not found !'
+                ],200);
+
+            }
+                
+
+        }catch (Exception $e){
+
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => $e->getMessage()
+                ],200);
+
+        }
+
+
+    }
 }
