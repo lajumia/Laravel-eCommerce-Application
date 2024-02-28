@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/brands',[BrandController::class,'brandList']);
 Route::get('/categories',[CategoryController::class,'categoryList']);
+Route::get('/products/{category_id}', [ProductController::class, 'productbyCategory']);
