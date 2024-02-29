@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductSlider;
 use Exception;
 use App\Models\Product;
 
@@ -79,6 +80,38 @@ class ProductController extends Controller
                 return response()->json([
                     'status' => 'success',
                     'products' => 'Product not found !'
+                ],200);
+
+            }
+
+
+        }catch (Exception $e){
+
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => $e->getMessage()
+                ],200);
+
+        }
+
+
+    }
+
+    // Product slider
+    public function productSlider()
+    {
+        $slide = ProductSlider::all();
+
+        try{
+            if($slide->count()>0){
+                return response()->json([
+                    'status' => 'success',
+                    'slides' => $slide
+                ],200);
+            }else{
+                return response()->json([
+                    'status' => 'success',
+                    'slides' => 'Product not found !'
                 ],200);
 
             }
