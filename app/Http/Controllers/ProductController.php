@@ -128,4 +128,37 @@ class ProductController extends Controller
 
 
     }
+
+    // Product details
+
+    public function productDetails($id)
+    {
+        $product = Product::find($id);
+
+        try{
+            if($product){
+                return response()->json([
+                    'status' => 'success',
+                    'product' => $product
+                ],200);
+            }else{
+                return response()->json([
+                    'status' => 'success',
+                    'product' => 'Product not found !'
+                ],200);
+
+            }
+
+
+        }catch (Exception $e){
+
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => $e->getMessage()
+                ],200);
+
+        }
+
+
+    }
 }
