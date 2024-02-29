@@ -63,4 +63,36 @@ class ProductController extends Controller
 
 
     }
+
+    public function productbyRemark($remark)
+    {
+        $products = Product::where('remark', $remark)->get();
+        $count = $products->count();
+
+        try{
+            if($count>0){
+                return response()->json([
+                    'status' => 'success',
+                    'products' => $products
+                ],200);
+            }else{
+                return response()->json([
+                    'status' => 'success',
+                    'products' => 'Product not found !'
+                ],200);
+
+            }
+
+
+        }catch (Exception $e){
+
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => $e->getMessage()
+                ],200);
+
+        }
+
+
+    }
 }

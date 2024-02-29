@@ -29,3 +29,4 @@ Route::get('/brands',[BrandController::class,'brandList']);
 Route::get('/categories',[CategoryController::class,'categoryList']);
 Route::get('/products/category/{category_id}', [ProductController::class, 'productbyCategory']);
 Route::get('/products/brand/{brand_id}', [ProductController::class, 'productbyBrand']);
+Route::get('/products/remark/{remark}', [ProductController::class, 'productbyRemark']);
