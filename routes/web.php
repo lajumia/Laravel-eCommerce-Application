@@ -32,3 +32,4 @@ Route::get('/products/brand/{brand_id}', [ProductController::class, 'productbyBr
 Route::get('/products/remark/{remark}', [ProductController::class, 'productbyRemark']);
 Route::get('/products/sliders', [ProductController::class, 'productSlider']);
 Route::get('/products/details/{id}', [ProductController::class, 'productDetails']);
+Route::get('/products/reviews', [ProductController::class, 'productReview']);
